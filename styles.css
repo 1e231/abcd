@@ -309,77 +309,10 @@ a.contact-card:hover { transform: translate(-2px, -2px); box-shadow: 0 10px 0 va
   .r-line time { align-self: flex-start; }
 }
 
-/* ---------- 可互动像素背景 ---------- */
-main, .site-footer { position: relative; z-index: 1; }
-.fx-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.fx-bg i, .fx-bg span { position: absolute; display: block; }
-
-.fx-cloud { width: 30px; height: 11px; background: rgba(238,247,255,.14); box-shadow: 30px -9px 0 5px rgba(238,247,255,.14), 12px -15px 0 7px rgba(238,247,255,.14); animation: drift 16s linear infinite; }
-.fx-cloud.fc1 { top: 16%; left: -80px; animation-duration: 38s; }
-.fx-cloud.fc2 { top: 34%; left: -80px; transform: scale(.7); animation-duration: 52s; animation-delay: -18s; }
-.fx-cloud.fc3 { top: 8%; left: -80px; transform: scale(1.25); animation-duration: 45s; animation-delay: -33s; }
-@keyframes fxd { 0% { left: -120px; } 100% { left: 105%; } }
-.fx-cloud { animation-name: fxd; }
-
-.fx-star { width: 5px; height: 5px; background: rgba(255,255,255,.75); box-shadow: 5px 0 0 rgba(255,255,255,.75), -5px 0 0 rgba(255,255,255,.75), 0 5px 0 rgba(255,255,255,.75), 0 -5px 0 rgba(255,255,255,.75); animation: twinkle 2.2s steps(2) infinite; }
-.fx-star.x1 { top: 12%; left: 10%; }
-.fx-star.x2 { top: 22%; right: 18%; animation-delay: .4s; }
-.fx-star.x3 { top: 40%; left: 6%; animation-delay: .9s; }
-.fx-star.x4 { top: 52%; right: 8%; animation-delay: 1.3s; }
-.fx-star.x5 { top: 6%; left: 46%; animation-delay: 1.7s; }
-.fx-star.x6 { top: 64%; left: 90%; animation-delay: .7s; }
-
-.fx-meteor { top: 4%; right: -60px; width: 56px; height: 3px; background: linear-gradient(270deg, #fff, transparent); transform: rotate(-32deg); opacity: 0; animation: shoot 9s linear infinite; animation-delay: 3s; }
-@keyframes shoot { 0% { opacity: 0; } 1% { opacity: 1; } 6% { transform: rotate(-32deg) translateX(-70vw); opacity: 0; } 100% { opacity: 0; } }
-
-.fx-grass { position: absolute; left: 0; right: 0; bottom: 0; height: 26px; background:
-  linear-gradient(45deg, transparent 33%, #1c7a3d 33% 66%, transparent 66%) 0 0/14px 100%,
-  linear-gradient(-45deg, transparent 33%, #1c7a3d 33% 66%, transparent 66%) 7px 0/14px 100%,
-  #144f28; opacity: .85; }
-
-.fx-slime { position: absolute; width: 26px; height: 20px; background: #00e07f; border: 3px solid var(--pixel-line); pointer-events: auto; cursor: pointer;
-  clip-path: polygon(0 100%, 0 55%, 12% 30%, 25% 12%, 45% 0, 62% 8%, 78% 26%, 88% 48%, 100% 55%, 100% 100%); animation: hop 3.2s steps(5) infinite; transition: transform .12s steps(2); }
-.fx-play { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-.fx-play .fx-coin, .fx-play .fx-slime { pointer-events: auto; }
-.fx-coins { position: absolute; inset: 0; }
-.fx-slime.sm1 { left: 10px; bottom: 14px; }
-.fx-slime.sm2 { right: 10px; bottom: 16px; animation-delay: 1.2s; }
-.fx-slime::before { content: ""; position: absolute; top: 7px; left: 6px; width: 4px; height: 4px; background: var(--pixel-line); box-shadow: 10px 0 0 var(--pixel-line); }
-.fx-slime.squash { animation: none; transform: scaleY(.35) translateY(12px); }
-@keyframes hop { 0%,60%,100% { transform: translateY(0); } 70% { transform: translateY(-16px); } 80% { transform: translateY(0) scaleY(.85); } }
-
-.fx-coins { position: absolute; inset: 0; }
-.fx-coin { position: absolute; width: 15px; height: 15px; background: var(--gold); border: 2px solid #7a5a00; box-shadow: inset -3px -3px 0 rgba(0,0,0,.25), inset 3px 3px 0 #ffe9a0, 0 0 12px rgba(255,201,60,.4); pointer-events: auto; cursor: pointer; animation: coinflip 1.4s steps(4) infinite; transition: transform .18s steps(3), opacity .18s; }
-.fx-coin.pop { animation: none; transform: scale(0) rotate(120deg); opacity: 0; }
-.fx-coin:hover { filter: brightness(1.2); }
-
-.fx-track, .fx-boom { position: fixed; inset: 0; z-index: 40; pointer-events: none; }
-.fx-pix { position: absolute; width: 6px; height: 6px; }
-.hud {
-  position: fixed; top: 84px; right: 12px; z-index: 55; pointer-events: none;
-  background: rgba(10,10,22,.78); color: var(--gold); opacity: .92;
-  font-family: var(--font-pixel); font-size: .5rem; letter-spacing: .08em;
-  padding: .45rem .6rem; border: 2px solid var(--gold); box-shadow: 3px 3px 0 rgba(0,0,0,.6);
-}
-.hud b { color: #fff; }
-.hud.flash { animation: hudflash .3s steps(2) 2; }
-@keyframes hudflash { 50% { background: var(--gold); color: #3a2a00; } }
-.levelup-banner {
-  position: fixed; top: 42%; left: 50%; transform: translate(-50%, -50%); z-index: 97;
-  font-family: var(--font-pixel); font-size: clamp(.9rem, 3vw, 1.6rem); color: var(--gold);
-  text-shadow: 4px 4px 0 var(--pixel-line); background: rgba(10,10,22,.92);
-  border: 3px solid var(--gold); padding: 1.2rem 1.8rem; opacity: 0; pointer-events: none;
-}
-.levelup-banner.show { animation: lvlup 2.2s steps(8) forwards; }
-@keyframes lvlup { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.3); } 12% { opacity: 1; transform: translate(-50%,-50%) scale(1.15); } 22% { transform: translate(-50%,-50%) scale(1); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%,-62%) scale(1); } }
-body.rainbow { animation: hue 3s linear infinite; }
-@keyframes hue { to { filter: hue-rotate(360deg); } }
-
 /* ---------- 打印（导出简历） ---------- */
 @media print {
-  body { background: #fff; color: #111; background-image: none; animation: none; }
-  .scanlines, .site-header, .mobile-menu, .car-btn, .dots, .site-footer, .nav-cta,
-  .fx-bg, .fx-play, .fx-track, .fx-boom, .hud, .levelup-banner { display: none !important; }
+  body { background: #fff; color: #111; background-image: none; }
+  .scanlines, .site-header, .mobile-menu, .car-btn, .dots, .site-footer, .nav-cta { display: none !important; }
   .scene { display: none; }
   .pixel-box, .r-item { box-shadow: none; border-color: #999; background: #fff; }
   .resume-card { border: 2px solid #333; }
