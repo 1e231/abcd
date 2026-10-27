@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
   <div class="scanlines" aria-hidden="true"></div>
@@ -60,7 +60,7 @@
 
       <div class="carousel pixel-box" id="carousel" aria-label="作品轮播">
         <div class="slides" id="slides">
-          <!-- 场景 1：时间的刻度 -->
+          <!-- 场景 1：森林音乐会 -->
           <article class="slide">
             <div class="scene scene-valley" aria-hidden="true">
               <i class="mtn m1"></i><i class="mtn m2"></i><i class="mtn m3"></i>
@@ -71,8 +71,8 @@
             <div class="caption">
               <div>
                 <span class="tag">华迪杯省三 · 主打作品</span>
-                <h3>《时间的刻度》：川西风光风格化场景漫游</h3>
-                <p>以川西风光为原型的风格化场景漫游 Demo，独立完成 30 余件资产从建模到引擎落地的全流程制作。</p>
+                <h3>《森林音乐会》：森林主题风格化场景漫游</h3>
+                <p>以森林音乐会为主题的风格化场景漫游 Demo，独立完成 30 余件资产从建模到引擎落地的全流程制作。</p>
               </div>
               <a class="btn btn-primary" href="#portfolio">浏览全部作品</a>
             </div>
@@ -128,16 +128,13 @@
       <div class="work-list">
         <article class="work-card pixel-box">
           <div class="work-media">
-            <div class="scene scene-valley" aria-hidden="true">
-              <i class="mtn m1"></i><i class="mtn m2"></i><i class="mtn m3"></i>
-              <i class="tree t1"></i><i class="tree t2"></i><i class="coin c1"></i><i class="star s1"></i>
-            </div>
+            <video class="media-real" controls preload="metadata" src="assets/media/forest-concert.mp4"></video>
             <span class="work-badge">2025.03 - 2025.06 · 华迪杯省三</span>
           </div>
           <div class="work-body">
             <p class="work-meta">2025.03 - 2025.06 · 场景建模主力 · 5 人团队 · 省级三等奖</p>
-            <h3>《时间的刻度》风格化场景漫游</h3>
-            <p>以川西风光为原型的风格化游戏场景漫游 Demo，作为团队场景建模主力完成全部场景资产制作。</p>
+            <h3>《森林音乐会》风格化场景漫游</h3>
+            <p>以森林音乐会为主题的风格化游戏场景漫游 Demo，作为团队场景建模主力完成全部场景资产制作。</p>
             <ul>
               <li>使用 Blender 完成 30 余件场景资产建模与 UV 拆分；</li>
               <li>Substance Painter 绘制 PBR 材质，准确把握风格化表现；</li>
@@ -150,10 +147,7 @@
 
         <article class="work-card rev pixel-box">
           <div class="work-media">
-            <div class="scene scene-fanlou" aria-hidden="true">
-              <i class="moon"></i><i class="star s2"></i><i class="roof"></i><i class="tower"></i>
-              <i class="lantern l1"></i><i class="lantern l2"></i>
-            </div>
+            <img class="media-real" src="assets/media/fanlou.png" alt="《樊楼》场景渲染效果图：古代楼阁与灯笼夜景" loading="lazy">
             <span class="work-badge">2025.06 - 2025.12 · 校内团队项目</span>
           </div>
           <div class="work-body">
@@ -172,9 +166,7 @@
 
         <article class="work-card pixel-box">
           <div class="work-media">
-            <div class="scene scene-twin" aria-hidden="true">
-              <i class="grid-floor"></i><i class="cube q1"></i><i class="cube q2"></i><i class="cube q3"></i>
-            </div>
+            <video class="media-real" controls preload="metadata" src="assets/media/house-twin.mp4"></video>
             <span class="work-badge">2025.12 - 2026.02 · 省赛铜奖</span>
           </div>
           <div class="work-body">
@@ -224,9 +216,9 @@
         <div class="r-block">
           <h4>◆ 参赛与项目经历</h4>
           <div class="r-item">
-            <div class="r-line"><strong>《时间的刻度》 | 华迪杯大学生计算机设计大赛</strong><time>2025.03 - 2025.06</time></div>
+            <div class="r-line"><strong>《森林音乐会》 | 华迪杯大学生计算机设计大赛</strong><time>2025.03 - 2025.06</time></div>
             <ul>
-              <li>以川西风光为原型的风格化游戏场景漫游 Demo，担任场景建模主力（5 人团队）；</li>
+              <li>以森林音乐会为主题的风格化游戏场景漫游 Demo，担任场景建模主力（5 人团队）；</li>
               <li>使用 Blender 完成 30 余件场景资产建模与 UV 拆分，Substance Painter 绘制 PBR 材质；</li>
               <li>在 UE5 中完成场景组装、植被散布与光照设计，制作参赛展示视频，获省级三等奖。</li>
             </ul>
@@ -285,10 +277,25 @@
     <section id="notes" class="section">
       <h2 class="sec-title">学习手账</h2>
       <p class="sec-sub">STUDY NOTES</p>
-      <div class="notes-card">
-        <div class="pixel-book" aria-hidden="true"><i></i><i></i><i></i></div>
-        <h3>笔记整理中 · 敬请期待</h3>
-        <p>这里将记录 Blender / Substance Painter / UE5 与 VR 开发过程中的学习笔记、踩坑记录与项目复盘，正在持续更新中。</p>
+      <div class="notes-grid">
+        <article class="note-card pixel-box">
+          <span class="note-date">2025.11.08</span>
+          <h3>Blender 场景建模心得</h3>
+          <p>场景资产用模块化思路拆成 Wall / Floor / Prop 三类模组，Alt+D 关联复制控制面数；UV 展开先大后小，接缝尽量藏在背面。踩坑记录：烘焙法线时 cage 没对齐导致边缘漏光，重新对位后解决。</p>
+          <div class="note-tags"><i>Blender</i><i>模块化</i><i>UV 拆分</i></div>
+        </article>
+        <article class="note-card pixel-box">
+          <span class="note-date">2025.11.23</span>
+          <h3>Substance Painter 材质笔记</h3>
+          <p>风格化材质不必照搬标准 PBR：Base Color 直接画明暗层次，Roughness 只留 2~3 档对比反而更有插画感。流程是智能材质打底 + 手绘叠加做磨损，导出前逐一核对通道命名与 UE5 的对应关系。</p>
+          <div class="note-tags"><i>SP</i><i>PBR</i><i>手绘材质</i></div>
+        </article>
+        <article class="note-card pixel-box">
+          <span class="note-date">2025.12.12</span>
+          <h3>UE5 灯光与氛围</h3>
+          <p>天光 + 低角度定向光打出黄昏调子，指数高度雾拉开前后空间层次。Lightmass 默认参数偏糊，把 Indirect Bounces 提到 4、分辨率设 1.0；后期盒里 Bloom 收敛再压一点暗角，氛围立刻就出来了。</p>
+          <div class="note-tags"><i>UE5</i><i>灯光烘焙</i><i>后处理</i></div>
+        </article>
       </div>
     </section>
 
@@ -318,6 +325,6 @@
     <p class="foot-keys" aria-hidden="true">▲ ▼ ◀ ▶ PRESS START</p>
   </footer>
 
-  <script src="main.js?v=2"></script>
+  <script src="main.js?v=3"></script>
 </body>
 </html>
