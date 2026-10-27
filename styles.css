@@ -311,6 +311,55 @@ a.contact-card:hover { transform: translate(-2px, -2px); box-shadow: 0 10px 0 va
   .r-line time { align-self: flex-start; }
 }
 
+/* ---------- 动态背景装饰（纯视觉：z 0 在正文之下，整层禁点击） ---------- */
+.bg-fx { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.bg-fx i, .bg-fx div { position: absolute; display: block; }
+
+.bf-cloud { width: 34px; height: 12px; background: rgba(238,247,255,.12); box-shadow: 34px -10px 0 6px rgba(238,247,255,.12), 14px -17px 0 8px rgba(238,247,255,.12); animation: bfdrift linear infinite; }
+.bf-cloud.c1 { top: 14%; left: -160px; animation-duration: 55s; }
+.bf-cloud.c2 { top: 30%; left: -160px; transform: scale(.65); animation-duration: 78s; animation-delay: -30s; }
+.bf-cloud.c3 { top: 6%; left: -160px; transform: scale(1.3); animation-duration: 66s; animation-delay: -48s; }
+@keyframes bfdrift { from { left: -160px; } to { left: 105%; } }
+
+.bf-star { width: 5px; height: 5px; background: rgba(255,255,255,.55); box-shadow: 5px 0 0 rgba(255,255,255,.55), -5px 0 0 rgba(255,255,255,.55), 0 5px 0 rgba(255,255,255,.55), 0 -5px 0 rgba(255,255,255,.55); animation: bftw 2.4s steps(2) infinite; }
+.bf-star.s1 { top: 10%; left: 8%; }
+.bf-star.s2 { top: 20%; right: 14%; animation-delay: .4s; }
+.bf-star.s3 { top: 42%; left: 4%; animation-delay: .9s; }
+.bf-star.s4 { top: 55%; right: 5%; animation-delay: 1.3s; }
+.bf-star.s5 { top: 5%; left: 44%; animation-delay: 1.7s; }
+.bf-star.s6 { top: 68%; left: 88%; animation-delay: .7s; }
+@keyframes bftw { 50% { opacity: .2; } }
+
+.bf-meteor { top: 3%; right: -80px; width: 64px; height: 3px; background: linear-gradient(270deg, rgba(255,255,255,.85), transparent); transform: rotate(-30deg); opacity: 0; animation: bfshoot 11s linear infinite; animation-delay: 4s; }
+@keyframes bfshoot { 0% { opacity: 0; } 1.5% { opacity: 1; } 5% { transform: rotate(-30deg) translateX(-70vw); opacity: 0; } 100% { opacity: 0; } }
+
+.bf-fly { width: 6px; height: 6px; background: #7ef0c2; box-shadow: 0 0 10px 3px rgba(126,240,194,.4); opacity: .5; animation: bffloat 6s ease-in-out infinite alternate, bfglow 2.2s steps(3) infinite; }
+.bf-fly.f1 { bottom: 12%; left: 6%; }
+.bf-fly.f2 { bottom: 8%; left: 30%; animation-duration: 7.5s, 2.8s; animation-delay: -2s, .5s; }
+.bf-fly.f3 { bottom: 15%; right: 22%; animation-duration: 5.4s, 2s; animation-delay: -3.5s, 1s; }
+.bf-fly.f4 { bottom: 6%; right: 8%; animation-duration: 8s, 2.6s; animation-delay: -1s, .2s; }
+.bf-fly.f5 { bottom: 18%; left: 60%; animation-duration: 6.8s, 2.4s; animation-delay: -4s, .8s; }
+@keyframes bffloat { to { transform: translateY(-34px); } }
+@keyframes bfglow { 50% { opacity: .15; } }
+
+.bf-mote { width: 5px; height: 5px; background: rgba(200,220,255,.15); animation: bffall linear infinite; }
+.bf-mote.m1 { left: 12%; animation-duration: 18s; }
+.bf-mote.m2 { left: 34%; animation-duration: 24s; animation-delay: -6s; }
+.bf-mote.m3 { left: 55%; animation-duration: 16s; animation-delay: -11s; }
+.bf-mote.m4 { left: 72%; animation-duration: 26s; animation-delay: -3s; }
+.bf-mote.m5 { left: 86%; animation-duration: 20s; animation-delay: -14s; }
+.bf-mote.m6 { left: 46%; animation-duration: 22s; animation-delay: -18s; }
+@keyframes bffall { from { top: -4%; } to { top: 104%; } }
+
+.bf-grass { left: 0; right: 0; bottom: 0; height: 26px; background:
+  linear-gradient(45deg, transparent 33%, #1c7a3d 33% 66%, transparent 66%) 0 0/14px 100%,
+  linear-gradient(-45deg, transparent 33%, #1c7a3d 33% 66%, transparent 66%) 7px 0/14px 100%,
+  #144f28; opacity: .5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-fx i { animation: none !important; }
+}
+
 /* ---------- 作品媒体与学习手账 ---------- */
 .work-media video.media-real,
 .work-media img.media-real { width: 100%; height: 100%; object-fit: cover; display: block; background: #0c0c18; }
@@ -326,7 +375,7 @@ a.contact-card:hover { transform: translate(-2px, -2px); box-shadow: 0 10px 0 va
 /* ---------- 打印（导出简历） ---------- */
 @media print {
   body { background: #fff; color: #111; background-image: none; }
-  .scanlines, .site-header, .mobile-menu, .car-btn, .dots, .site-footer, .nav-cta { display: none !important; }
+  .scanlines, .bg-fx, .site-header, .mobile-menu, .car-btn, .dots, .site-footer, .nav-cta { display: none !important; }
   .scene, .slide-img { display: none; }
   .pixel-box, .r-item { box-shadow: none; border-color: #999; background: #fff; }
   .resume-card { border: 2px solid #333; }
