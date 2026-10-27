@@ -4,335 +4,318 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>abcd — 虚拟现实开发 · 小游戏定制 · 工业数字孪生 | VR 解决方案专家</title>
-  <meta name="description" content="abcd 专注虚拟现实开发、小游戏定制、工业数字孪生、高斯泼溅实景重建与 VR 培训，服务广告、影视、高校、企业、军工与银行客户，提供从创意到交付的一站式沉浸式解决方案。">
-  <meta name="keywords" content="虚拟现实,小游戏,培训,高斯泼溅,VR开发,数字孪生,小程序开发">
+  <title>黄靖雯 | 游戏场景建模 · 3D 场景美术 · UE5 / VR 作品集</title>
+  <meta name="description" content="黄靖雯的个人作品集：成都职业技术学院虚拟现实技术应用专业，专注游戏场景建模与 3D 场景美术，熟练使用 Blender、3ds Max、Substance Painter 与 Unreal Engine 5，从建模、材质到引擎落地全流程制作。">
+  <meta name="keywords" content="游戏场景建模,3D场景美术,Blender,Substance Painter,UE5,虚拟现实,数字孪生,作品集">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="abcd — 虚拟现实开发 · 小游戏定制 · 工业数字孪生">
-  <meta property="og:description" content="用虚拟现实与小游戏开发，为品牌与工业创造沉浸式价值。">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=1200&auto=format&fit=crop">
-  <meta property="og:locale" content="zh_CN">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 27.3 9.5v13L16 29 4.7 22.5v-13L16 3Z' fill='none' stroke='%235B5FEF' stroke-width='2.5'/%3E%3C/svg%3E">
+  <meta property="og:title" content="黄靖雯 | 游戏场景建模 · 3D 场景美术作品集">
+  <meta property="og:description" content="从建模、贴图到引擎落地的完整管线，用像素的心热爱每一个场景。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect x='2' y='2' width='5' height='5' fill='%2300E07F'/%3E%3Crect x='9' y='2' width='5' height='5' fill='%23FFC93C'/%3E%3Crect x='2' y='9' width='5' height='5' fill='%232DE2E6'/%3E%3Crect x='9' y='9' width='5' height='5' fill='%23FF6AC1'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="scanlines" aria-hidden="true"></div>
 
   <!-- ===== 页眉 ===== -->
   <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="index.html" aria-label="abcd 首页">
-        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="lgLogo" x1="0" y1="0" x2="32" y2="32">
-              <stop offset="0" stop-color="#5B5FEF"/><stop offset="1" stop-color="#22D3EE"/>
-            </linearGradient>
-          </defs>
-          <path d="M16 3 27.3 9.5v13L16 29 4.7 22.5v-13L16 3Z" stroke="url(#lgLogo)" stroke-width="2.2" stroke-linejoin="round"/>
-          <path d="M4.7 9.5 16 16l11.3-6.5M16 16v13" stroke="url(#lgLogo)" stroke-width="2.2" stroke-linejoin="round"/>
-        </svg>
-        <span>abcd<small>VR STUDIO</small></span>
+    <div class="nav-wrap">
+      <a class="brand" href="#home">
+        <span class="avatar" aria-hidden="true">HJW</span>
+        <span class="brand-text"><strong>黄靖雯</strong><small>游戏美术 · 3D 场景建模 · UE5 / VR 方向</small></span>
       </a>
       <nav class="nav-links" aria-label="主导航">
-        <a href="index.html" aria-current="page">首页</a>
-        <a href="about.html">关于我们</a>
-        <a href="services.html">服务</a>
-        <a href="portfolio.html">作品集</a>
-        <a href="contact.html">联系我们</a>
+        <a href="#home" class="active">首页</a>
+        <a href="#portfolio">虚拟空间 / 作品集</a>
+        <a href="#about">关于我与简历</a>
+        <a href="#notes">学习手账</a>
+        <a href="#contact">联系我</a>
       </nav>
-      <div class="nav-right">
-        <a class="btn btn-primary nav-cta" href="contact.html">预约咨询</a>
-        <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu">
-          <span></span><span></span><span></span>
-        </button>
+      <div class="nav-cta">
+        <a class="btn btn-line" href="#contact">联系我</a>
+        <button class="btn btn-primary" type="button" id="btnResume">▶ 导出简历</button>
       </div>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home">首页</a>
+      <a href="#portfolio">虚拟空间 / 作品集</a>
+      <a href="#about">关于我与简历</a>
+      <a href="#notes">学习手账</a>
+      <a href="#contact">联系我</a>
+      <button class="btn btn-primary" type="button" data-resume>▶ 导出简历</button>
     </div>
   </header>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html" aria-current="page">首页</a>
-    <a href="about.html">关于我们</a>
-    <a href="services.html">服务</a>
-    <a href="portfolio.html">作品集</a>
-    <a href="contact.html">联系我们</a>
-    <a class="btn btn-primary" href="contact.html">预约咨询</a>
-  </div>
 
   <main>
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <span class="eyebrow">VR · 小游戏 · 数字孪生 · 高斯泼溅</span>
-          <h1>用虚拟现实与小游戏开发，<br>为品牌与工业创造<span class="grad-text">沉浸式价值</span></h1>
-          <p class="lead">abcd 是一家专注虚拟现实、小游戏与工业数字孪生的开发工作室，服务广告、影视、高校、企业、军工与银行客户，从创意概念到上线交付一站式完成。</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="contact.html">
-              预约免费咨询
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <a class="btn btn-ghost" href="portfolio.html">查看我们的作品</a>
-          </div>
-          <div class="hero-stats">
-            <div><span class="stat-num">120<small>+</small></span><span class="stat-label">交付项目</span></div>
-            <div><span class="stat-num">8<small> 年</small></span><span class="stat-label">行业深耕</span></div>
-            <div><span class="stat-num">98<small>%</small></span><span class="stat-label">客户满意度</span></div>
-          </div>
-        </div>
-        <div class="hero-media">
-          <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=1200&auto=format&fit=crop" alt="开发者佩戴 VR 头显进行沉浸式虚拟现实交互测试" width="1200" height="1020" fetchpriority="high">
-          <span class="float-chip tag-glass chip-a">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
-            高斯泼溅 3DGS 实景重建
-          </span>
-          <span class="float-chip tag-glass chip-b">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="12" rx="4"/><path d="M7 11v4M5 13h4M15.5 12h.01M18 14h.01"/></svg>
-            UE5 · Unity 自研工具链
-          </span>
-        </div>
-      </div>
-    </section>
+    <!-- ===== 首页 ===== -->
+    <section id="home" class="hero">
+      <h1 class="hero-title">选择目的地<span class="cursor" aria-hidden="true">▮</span></h1>
+      <p class="hero-sub"><span id="typing">CHOOSE A DESTINATION · 成都职业技术学院 · 虚拟现实技术应用</span></p>
 
-    <!-- ===== 信任背书条 ===== -->
-    <section class="trust" aria-label="客户信任背书">
-      <div class="container">
-        <p class="trust-label">他们选择了 abcd 的沉浸式解决方案</p>
-        <ul class="trust-logos">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>晨光影视集团</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>蓝鲸广告</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 10 12 4l9 6M5 10v9h14v-9M9 19v-5h6v5"/></svg>中州银行</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3 21 7-4 4 3 7-4M3 14l7-4 4 3 7-4M3 7l7-4 4 3 7-4"/></svg>北岭大学</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/></svg>华信军工研究院</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ===== 核心优势 ===== -->
-    <section class="section" id="advantages">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">为什么选择 abcd</span>
-            <h2>三个理由，让我们成为更可靠的合作伙伴</h2>
-          </div>
-          <a class="link-arrow" href="about.html">了解我们的故事
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-        <div class="grid-3">
-          <article class="card reveal">
-            <div class="icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5-9 5-9-5 9-5ZM3 12l9 5 9-5M3 17l9 5 9-5"/></svg>
+      <div class="carousel pixel-box" id="carousel" aria-label="作品轮播">
+        <div class="slides" id="slides">
+          <!-- 场景 1：时间的刻度 -->
+          <article class="slide">
+            <div class="scene scene-valley" aria-hidden="true">
+              <i class="mtn m1"></i><i class="mtn m2"></i><i class="mtn m3"></i>
+              <i class="tree t1"></i><i class="tree t2"></i><i class="tree t3"></i>
+              <i class="coin c1"></i><i class="coin c2"></i><i class="star s1"></i>
+              <i class="cloud k1"></i><i class="cloud k2"></i>
             </div>
-            <h3>全栈自研，引擎级掌控</h3>
-            <p>UE5 与 Unity 双引擎管线，搭配自研编辑器插件与资产管理工具，从建模、交互到上线全流程自主可控，拒绝外包拼装带来的质量黑洞。</p>
+            <div class="caption">
+              <div>
+                <span class="tag">华迪杯省三 · 主打作品</span>
+                <h3>《时间的刻度》：川西风光风格化场景漫游</h3>
+                <p>以川西风光为原型的风格化场景漫游 Demo，独立完成 30 余件资产从建模到引擎落地的全流程制作。</p>
+              </div>
+              <a class="btn btn-primary" href="#portfolio">浏览全部作品</a>
+            </div>
           </article>
-          <article class="card reveal">
-            <div class="icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3ZM19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15Z"/></svg>
+          <!-- 场景 2：樊楼 -->
+          <article class="slide">
+            <div class="scene scene-fanlou" aria-hidden="true">
+              <i class="moon"></i><i class="star s2"></i><i class="star s3"></i>
+              <i class="roof"></i><i class="tower"></i><i class="lantern l1"></i><i class="lantern l2"></i>
             </div>
-            <h3>高斯泼溅实景复刻</h3>
-            <p>采用 3D Gaussian Splatting 前沿管线，把真实场景毫米级复刻进 VR，比传统建模快 10 倍、成本降低 60%，让虚拟展厅与数字资产触手可及。</p>
+            <div class="caption">
+              <div>
+                <span class="tag">校内团队项目 · 场景建模</span>
+                <h3>《樊楼》场景建模：古代楼阁全流程美术</h3>
+                <p>以古代樊楼文化为背景，完成主场景 10 余件资产建模、统一风格 PBR 材质与 UE5 昼夜双时段灯光演示。</p>
+              </div>
+              <a class="btn btn-primary" href="#portfolio">浏览全部作品</a>
+            </div>
           </article>
-          <article class="card reveal">
-            <div class="icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <!-- 场景 3：数字孪生 -->
+          <article class="slide">
+            <div class="scene scene-twin" aria-hidden="true">
+              <i class="grid-floor"></i><i class="cube q1"></i><i class="cube q2"></i><i class="cube q3"></i>
             </div>
-            <h3>军工级交付标准</h3>
-            <p>长期服务军工、银行客户的保密与合规经验：数据本地化、分级权限管理、源码与资产完整交付，敏感项目签署保密协议后驻场开发。</p>
+            <div class="caption">
+              <div>
+                <span class="tag">省职业技能大赛 · 铜奖</span>
+                <h3>数字孪生场景：虚拟现实设计与制作赛项</h3>
+                <p>负责数字孪生场景从高模到低模的全流程制作，配合完成 UE 场景整合与预览调试，斩获省级铜奖。</p>
+              </div>
+              <a class="btn btn-primary" href="#portfolio">浏览全部作品</a>
+            </div>
           </article>
         </div>
+        <button class="car-btn prev" id="carPrev" type="button" aria-label="上一个">◀</button>
+        <button class="car-btn next" id="carNext" type="button" aria-label="下一个">▶</button>
+        <div class="dots" id="carDots"></div>
+      </div>
+
+      <div class="quick-facts">
+        <div class="fact pixel-box"><small>求职意向</small><strong>游戏场景建模 / 3D 美术</strong></div>
+        <div class="fact pixel-box"><small>就读院校</small><strong>成都职业技术学院</strong></div>
+        <div class="fact pixel-box"><small>专业方向</small><strong>虚拟现实技术应用</strong></div>
+        <div class="fact pixel-box"><small>主修核心</small><strong>3ds Max / Blender / UE5</strong></div>
       </div>
     </section>
 
-    <!-- ===== 服务预览 ===== -->
-    <section class="section section-alt" id="services-preview">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">核心服务</span>
-            <h2>四条产品线，覆盖从体验到获客的完整链路</h2>
+    <!-- ===== 作品集 ===== -->
+    <section id="portfolio" class="section">
+      <h2 class="sec-title">虚拟空间 / 作品集</h2>
+      <p class="sec-sub">PORTFOLIO · VIRTUAL SPACE</p>
+
+      <div class="work-list">
+        <article class="work-card pixel-box">
+          <div class="work-media">
+            <div class="scene scene-valley" aria-hidden="true">
+              <i class="mtn m1"></i><i class="mtn m2"></i><i class="mtn m3"></i>
+              <i class="tree t1"></i><i class="tree t2"></i><i class="coin c1"></i><i class="star s1"></i>
+            </div>
+            <span class="work-badge">2025.03 - 2025.06 · 华迪杯省三</span>
           </div>
-          <a class="link-arrow" href="services.html">查看全部服务
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-        <div class="grid-4">
-          <a class="card service-card reveal" href="services.html#service-vr">
-            <figure><img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?q=80&w=800&auto=format&fit=crop" alt="佩戴 VR 头显的女性体验虚拟现实展厅应用" loading="lazy" width="800" height="500"></figure>
-            <div class="service-body">
-              <h3>虚拟现实应用开发</h3>
-              <p>VR 线下大空间、虚拟展厅、虚拟仿真实验，UE5 高保真渲染。</p>
-              <span class="link-arrow">了解详情 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <div class="work-body">
+            <p class="work-meta">2025.03 - 2025.06 · 场景建模主力 · 5 人团队 · 省级三等奖</p>
+            <h3>《时间的刻度》风格化场景漫游</h3>
+            <p>以川西风光为原型的风格化游戏场景漫游 Demo，作为团队场景建模主力完成全部场景资产制作。</p>
+            <ul>
+              <li>使用 Blender 完成 30 余件场景资产建模与 UV 拆分；</li>
+              <li>Substance Painter 绘制 PBR 材质，准确把握风格化表现；</li>
+              <li>在 UE5 中完成场景组装、植被散布与光照设计；</li>
+              <li>制作参赛展示视频，获省级三等奖。</li>
+            </ul>
+            <div class="tags"><span>Blender</span><span>Substance Painter</span><span>UE5</span><span>风格化场景</span><span>光照设计</span></div>
+          </div>
+        </article>
+
+        <article class="work-card rev pixel-box">
+          <div class="work-media">
+            <div class="scene scene-fanlou" aria-hidden="true">
+              <i class="moon"></i><i class="star s2"></i><i class="roof"></i><i class="tower"></i>
+              <i class="lantern l1"></i><i class="lantern l2"></i>
             </div>
-          </a>
-          <a class="card service-card reveal" href="services.html#service-game">
-            <figure><img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=800&auto=format&fit=crop" alt="霓虹灯光下的游戏手柄，代表小游戏开发服务" loading="lazy" width="800" height="500"></figure>
-            <div class="service-body">
-              <h3>小游戏开发</h3>
-              <p>微信 / 抖音小游戏、H5 互动营销，为品牌活动带来可裂变的流量。</p>
-              <span class="link-arrow">了解详情 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <span class="work-badge">2025.06 - 2025.12 · 校内团队项目</span>
+          </div>
+          <div class="work-body">
+            <p class="work-meta">2025.06 - 2025.12 · 场景建模 · 校内团队（4 人）</p>
+            <h3>《樊楼》场景建模项目</h3>
+            <p>以古代樊楼文化为背景的风格化场景建模项目，负责樊楼主场景的全流程美术搭建。</p>
+            <ul>
+              <li>使用 Blender 完成吊脚楼、石阶、栈道、灯笼等 10 余件场景资产建模与 UV 拆分；</li>
+              <li>使用 Substance Painter 绘制统一风格 PBR 材质，突出樊楼古老神秘的氛围质感；</li>
+              <li>在 UE5 中完成地形编辑、资产摆放、植被散布与灯光烘焙；</li>
+              <li>输出昼夜双时段场景演示。</li>
+            </ul>
+            <div class="tags"><span>Blender</span><span>PBR 材质</span><span>UE5</span><span>灯光烘焙</span><span>昼夜演示</span></div>
+          </div>
+        </article>
+
+        <article class="work-card pixel-box">
+          <div class="work-media">
+            <div class="scene scene-twin" aria-hidden="true">
+              <i class="grid-floor"></i><i class="cube q1"></i><i class="cube q2"></i><i class="cube q3"></i>
             </div>
-          </a>
-          <a class="card service-card reveal" href="services.html#service-twin">
-            <figure><img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=800&auto=format&fit=crop" alt="紫色光线下的抽象科技结构，象征工业数字孪生可视化" loading="lazy" width="800" height="500"></figure>
-            <div class="service-body">
-              <h3>工业数字孪生</h3>
-              <p>产线 1:1 复刻、设备物联可视化、军工级仿真训练系统。</p>
-              <span class="link-arrow">了解详情 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </a>
-          <a class="card service-card reveal" href="services.html#service-training">
-            <figure><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop" alt="高校课堂中使用 VR 设备进行实训教学" loading="lazy" width="800" height="500"></figure>
-            <div class="service-body">
-              <h3>VR 培训与实训</h3>
-              <p>高校虚拟仿真实训室共建、企业安全培训课程定制开发。</p>
-              <span class="link-arrow">了解详情 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </a>
-        </div>
+            <span class="work-badge">2025.12 - 2026.02 · 省赛铜奖</span>
+          </div>
+          <div class="work-body">
+            <p class="work-meta">2025.12 - 2026.02 · 团队建模手 · 3 人团队 · 省级铜奖</p>
+            <h3>数字孪生场景 · 虚拟现实设计与制作赛项</h3>
+            <p>四川省职业技能大赛"虚拟现实设计与制作"赛项作品，负责数字孪生场景的全流程建模制作。</p>
+            <ul>
+              <li>负责数字孪生场景从高模到低模的全流程制作，面数与命名符合赛项技术规范；</li>
+              <li>完成建筑主体建模与贴图绘制，兼顾精度与效率；</li>
+              <li>配合队友完成 UE 场景整合与数字孪生预览调试；</li>
+              <li>最终斩获赛项省级铜奖。</li>
+            </ul>
+            <div class="tags"><span>数字孪生</span><span>高模低模</span><span>建筑建模</span><span>UE5</span><span>省赛铜奖</span></div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- ===== 客户评价 ===== -->
-    <section class="section" id="testimonials">
-      <div class="container">
-        <div class="section-head">
+    <!-- ===== 关于我与简历 ===== -->
+    <section id="about" class="section">
+      <h2 class="sec-title">关于我与简历</h2>
+      <p class="sec-sub">ABOUT ME · RESUME</p>
+
+      <div class="resume-card pixel-box">
+        <div class="resume-head">
           <div>
-            <span class="eyebrow">客户评价</span>
-            <h2>来自广告、教育与制造业客户的真实反馈</h2>
+            <h3 class="resume-name">黄靖雯</h3>
+            <p class="resume-intent">求职意向：游戏场景建模工程师 · 3D 场景美术 · VR / 虚拟现实开发</p>
+          </div>
+          <dl class="resume-info">
+            <div><dt>性别</dt><dd>女</dd></div>
+            <div><dt>年龄</dt><dd>20</dd></div>
+            <div><dt>邮箱</dt><dd><a href="mailto:2723115239@qq.com">2723115239@qq.com</a></dd></div>
+            <div><dt>电话</dt><dd><a href="tel:15718012005">157-1801-2005</a></dd></div>
+          </dl>
+        </div>
+
+        <div class="r-block">
+          <h4>◆ 教育背景</h4>
+          <div class="r-item">
+            <div class="r-line"><strong>成都职业技术学院 · 虚拟现实技术应用（大专）</strong><time>2024.09 - 2027.06</time></div>
+            <p class="r-note">升学规划：深耕虚拟现实、3D 交互与游戏场景美术方向</p>
+            <p class="r-note">主修课程：三维建模基础、游戏场景制作、数字雕刻、PBR 材质贴图、虚幻引擎（UE）应用、VR 场景开发实训等。</p>
           </div>
         </div>
-        <div class="grid-3">
-          <figure class="card quote-card reveal">
-            <span class="stars" aria-label="五星好评">★★★★★</span>
-            <blockquote>“abcd 为我们的汽车上市活动定制了 H5 小游戏，两周上线、三天裂变 40 万用户，获客成本只有传统投放的三分之一。团队对品牌调性的理解超出预期。”</blockquote>
-            <figcaption>
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=96&h=96&auto=format&fit=crop&crop=faces" alt="客户陈墨的头像" loading="lazy" width="96" height="96">
-              <div><span class="quote-name">陈墨</span><span class="quote-role">蓝鲸广告 · 创意总监</span></div>
-            </figcaption>
-          </figure>
-          <figure class="card quote-card reveal">
-            <span class="stars" aria-label="五星好评">★★★★★</span>
-            <blockquote>“实训室从方案设计到设备调试全程由他们完成，学生第一次戴上头显就完成了完整的电弧焊仿真实训。学校验收时，这套系统被评为年度示范项目。”</blockquote>
-            <figcaption>
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=96&h=96&auto=format&fit=crop&crop=faces" alt="客户林岚的头像" loading="lazy" width="96" height="96">
-              <div><span class="quote-name">林岚</span><span class="quote-role">北岭大学 · 虚拟仿真实验中心负责人</span></div>
-            </figcaption>
-          </figure>
-          <figure class="card quote-card reveal">
-            <span class="stars" aria-label="五星好评">★★★★★</span>
-            <blockquote>“数字孪生平台把三个厂区、上千台设备装进了一块大屏，故障定位从小时级缩短到分钟级。他们懂工业协议，也懂怎么把数据讲成让人看得懂的画面。”</blockquote>
-            <figcaption>
-              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=96&h=96&auto=format&fit=crop&crop=faces" alt="客户周凯的头像" loading="lazy" width="96" height="96">
-              <div><span class="quote-name">周凯</span><span class="quote-role">某智能制造企业 · 数字化负责人</span></div>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
 
-    <!-- ===== 关于我们预览 ===== -->
-    <section class="section section-alt" id="about-preview">
-      <div class="container split">
-        <div class="split-media reveal">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="abcd 团队成员在工作室协作讨论 VR 项目方案" loading="lazy" width="1200" height="900">
+        <div class="r-block">
+          <h4>◆ 参赛与项目经历</h4>
+          <div class="r-item">
+            <div class="r-line"><strong>《时间的刻度》 | 华迪杯大学生计算机设计大赛</strong><time>2025.03 - 2025.06</time></div>
+            <ul>
+              <li>以川西风光为原型的风格化游戏场景漫游 Demo，担任场景建模主力（5 人团队）；</li>
+              <li>使用 Blender 完成 30 余件场景资产建模与 UV 拆分，Substance Painter 绘制 PBR 材质；</li>
+              <li>在 UE5 中完成场景组装、植被散布与光照设计，制作参赛展示视频，获省级三等奖。</li>
+            </ul>
+          </div>
+          <div class="r-item">
+            <div class="r-line"><strong>《樊楼》场景建模项目 | 校内团队项目（4 人）</strong><time>2025.06 - 2025.12</time></div>
+            <ul>
+              <li>负责樊楼主场景的全流程美术搭建，完成吊脚楼、石阶、栈道、灯笼等 10 余件资产建模与 UV 拆分；</li>
+              <li>使用 Substance Painter 绘制统一风格 PBR 材质，突出古老神秘的氛围质感；</li>
+              <li>在 UE5 中完成地形编辑、资产摆放、植被散布与灯光烘焙，输出昼夜双时段场景演示。</li>
+            </ul>
+          </div>
+          <div class="r-item">
+            <div class="r-line"><strong>数字孪生场景 | 四川省职业技能大赛"虚拟现实设计与制作"赛项</strong><time>2025.12 - 2026.02</time></div>
+            <ul>
+              <li>担任团队建模手（3 人团队），负责数字孪生场景从高模到低模的全流程制作；</li>
+              <li>完成建筑主体建模与贴图绘制，面数与命名符合赛项技术规范；</li>
+              <li>配合队友完成 UE 场景整合与数字孪生预览调试，斩获赛项省级铜奖。</li>
+            </ul>
+          </div>
         </div>
-        <div class="reveal">
-          <span class="eyebrow">关于 abcd</span>
-          <h2>一支把技术做成体验的跨界团队</h2>
-          <p style="color:var(--muted);margin-top:1rem;">abcd 成立于 2018 年，核心成员来自游戏引擎研发与影视视效行业。我们相信：技术只有被体验，才产生价值。</p>
-          <ul class="checklist">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>游戏引擎 + 影视视效双基因，画面与性能兼得</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>为广告、影视、高校、企业、军工、银行提供定制方案</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>从策划、美术、开发到运维的全流程交付能力</li>
+
+        <div class="r-block">
+          <h4>◆ 技能证书</h4>
+          <ul class="r-certs">
+            <li>四川省职业技能大赛"虚拟现实设计与制作"赛项 · 省级铜奖</li>
+            <li>四川省"华迪杯"大学生计算机设计大赛 · 省级三等奖</li>
+            <li>全国计算机等级考试二级证书</li>
+            <li>大学英语四级证书（CET-4）</li>
+            <li>普通话水平测试二级乙等证书</li>
           </ul>
-          <div class="inline-stats">
-            <div><span class="stat-num">30<small>+</small></span><span class="stat-label">长期合作机构</span></div>
-            <div><span class="stat-num">15<small> 人</small></span><span class="stat-label">核心研发团队</span></div>
-          </div>
-          <a class="btn btn-dark" href="about.html">深入了解我们</a>
+        </div>
+
+        <div class="r-block">
+          <h4>◆ 个人技能</h4>
+          <ul class="r-certs">
+            <li>熟练使用 3ds Max、Blender 进行游戏场景建模，掌握建模、UV 展开与烘焙全流程；</li>
+            <li>熟练使用 Substance Painter 绘制 PBR 材质，准确把握风格化材质表现；</li>
+            <li>熟悉 Unreal Engine（UE）场景搭建，掌握地形编辑、植被散布、灯光与后处理基础应用；</li>
+            <li>了解游戏引擎资产规范（面数控制、LOD 分级、碰撞设置），具备美术管线协作意识。</li>
+          </ul>
+        </div>
+
+        <div class="r-block">
+          <h4>◆ 自我评价</h4>
+          <ul class="r-certs">
+            <li>美术基础扎实，对游戏场景氛围、光影与细节表现有较强的感知力与追求；</li>
+            <li>熟悉游戏场景资产从建模、贴图到引擎落地的完整流程，能快速融入团队美术管线；</li>
+            <li>学习能力强、责任心强，能适应项目工期节奏并保质保量完成任务。</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== 最终 CTA ===== -->
-    <section class="section" id="final-cta">
-      <div class="container">
-        <div class="cta-band reveal">
-          <h2>有一个想法，想变成可体验的现实？</h2>
-          <p>告诉我们你的行业、场景与预算区间，48 小时内你将收到一份免费的可行性评估与初步方案。</p>
-          <div class="hero-cta" style="justify-content:center;margin-bottom:0;">
-            <a class="btn btn-primary" href="contact.html">预约免费咨询</a>
-            <a class="btn btn-ghost" href="tel:4008001234">致电 400-800-1234</a>
-          </div>
+    <!-- ===== 学习手账 ===== -->
+    <section id="notes" class="section">
+      <h2 class="sec-title">学习手账</h2>
+      <p class="sec-sub">STUDY NOTES</p>
+      <div class="notes-card">
+        <div class="pixel-book" aria-hidden="true"><i></i><i></i><i></i></div>
+        <h3>笔记整理中 · 敬请期待</h3>
+        <p>这里将记录 Blender / Substance Painter / UE5 与 VR 开发过程中的学习笔记、踩坑记录与项目复盘，正在持续更新中。</p>
+      </div>
+    </section>
+
+    <!-- ===== 联系我 ===== -->
+    <section id="contact" class="section">
+      <h2 class="sec-title">联系我</h2>
+      <p class="sec-sub">CONTACT ME</p>
+      <div class="contact-grid">
+        <a class="contact-card pixel-box" href="mailto:2723115239@qq.com">
+          <span class="c-icon i-mail" aria-hidden="true"></span>
+          <span class="c-text"><small>电子邮箱 · EMAIL</small><strong>2723115239@qq.com</strong></span>
+        </a>
+        <a class="contact-card pixel-box" href="tel:15718012005">
+          <span class="c-icon i-phone" aria-hidden="true"></span>
+          <span class="c-text"><small>联系电话 · PHONE</small><strong>157-1801-2005</strong></span>
+        </a>
+        <div class="contact-card pixel-box">
+          <span class="c-icon i-tools" aria-hidden="true"></span>
+          <span class="c-text"><small>主修工具 · TOOLS</small><strong>3ds Max · Blender · SP · UE5</strong></span>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ===== 页脚 ===== -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a class="logo" href="index.html" aria-label="abcd 首页">
-            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-              <defs><linearGradient id="lgLogoF" x1="0" y1="0" x2="32" y2="32"><stop offset="0" stop-color="#5B5FEF"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs>
-              <path d="M16 3 27.3 9.5v13L16 29 4.7 22.5v-13L16 3Z" stroke="url(#lgLogoF)" stroke-width="2.2" stroke-linejoin="round"/>
-              <path d="M4.7 9.5 16 16l11.3-6.5M16 16v13" stroke="url(#lgLogoF)" stroke-width="2.2" stroke-linejoin="round"/>
-            </svg>
-            <span>abcd<small>VR STUDIO</small></span>
-          </a>
-          <p class="footer-about">专注虚拟现实开发、小游戏定制、工业数字孪生与高斯泼溅实景重建，为企业与机构创造可体验的数字价值。</p>
-          <div class="footer-social">
-            <a href="https://weibo.com" target="_blank" rel="noopener" aria-label="微博">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3c-4.7 0-8.5-3.7-8.5-8.3S7.8 3.2 12.5 3.2 21 6.9 21 11.5Z"/><circle cx="12.5" cy="11.5" r="3.2"/></svg>
-            </a>
-            <a href="https://www.bilibili.com" target="_blank" rel="noopener" aria-label="哔哩哔哩">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="m7 3 3 4M17 3l-3 4M9 12.5v2M15 12.5v2"/></svg>
-            </a>
-            <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 8.5v7M18 10.5c0 4-4 3.5-8 5"/></svg>
-            </a>
-          </div>
-        </div>
-        <div>
-          <h4>快速链接</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">首页</a></li>
-            <li><a href="about.html">关于我们</a></li>
-            <li><a href="services.html">服务内容</a></li>
-            <li><a href="portfolio.html">作品集</a></li>
-            <li><a href="contact.html">联系我们</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>核心服务</h4>
-          <ul class="footer-links">
-            <li><a href="services.html#service-vr">虚拟现实开发</a></li>
-            <li><a href="services.html#service-game">小游戏开发</a></li>
-            <li><a href="services.html#service-twin">工业数字孪生</a></li>
-            <li><a href="services.html#service-splat">高斯泼溅重建</a></li>
-            <li><a href="services.html#service-training">VR 培训实训</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>联系我们</h4>
-          <ul class="footer-contact">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.6 1.9Z"/></svg><a href="tel:4008001234">400-800-1234（工作日 9:00–18:30）</a></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7L22 7"/></svg><a href="mailto:hello@abcd.com">hello@abcd.com</a></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>北京市海淀区中关村软件园 12 号楼 3 层</span></li>
-          </ul>
-          <button class="btn btn-ghost" type="button" data-copy="abcdstudio" style="margin-top:1rem;padding:.6rem 1.2rem;font-size:.85rem;">
-            复制微信号：abcdstudio
-          </button>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span id="year">2026</span> abcd 虚拟现实工作室 · 保留所有权利</span>
-        <span><a href="index.html">简体中文</a> · <a href="contact.html">商务合作</a></span>
-      </div>
-    </div>
+    <p>© 2026 黄靖雯 · 游戏场景建模作品集 · POWERED BY GITHUB PAGES</p>
+    <p class="foot-keys" aria-hidden="true">▲ ▼ ◀ ▶ PRESS START</p>
   </footer>
 
   <script src="main.js"></script>

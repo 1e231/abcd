@@ -1,146 +1,112 @@
-/* abcd 全站交互脚本 */
+/* 黄靖雯作品集 · 像素风交互脚本 */
 (function () {
-  "use strict";
-
-  /* ---------- 页眉滚动阴影 ---------- */
-  var header = document.querySelector(".site-header");
-  function onScroll() {
-    if (header) header.classList.toggle("scrolled", window.scrollY > 8);
-  }
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
+  'use strict';
 
   /* ---------- 移动端菜单 ---------- */
-  var toggle = document.querySelector(".nav-toggle");
-  var menu = document.getElementById("mobileMenu");
-  function closeMenu() {
-    if (!menu || !toggle) return;
-    menu.classList.remove("open");
-    toggle.classList.remove("active");
-    toggle.setAttribute("aria-expanded", "false");
-  }
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
   if (toggle && menu) {
-    toggle.addEventListener("click", function () {
-      var open = menu.classList.toggle("open");
-      toggle.classList.toggle("active", open);
-      toggle.setAttribute("aria-expanded", String(open));
+    toggle.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    menu.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", closeMenu);
-    });
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 900) closeMenu();
-    });
-  }
-
-  /* ---------- 滚动入场动画 ---------- */
-  var revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add("in"); });
-  }
-
-  /* ---------- 作品集筛选 ---------- */
-  var chips = document.querySelectorAll(".chip[data-filter]");
-  var cards = document.querySelectorAll(".work-card");
-  var emptyTip = document.querySelector(".empty-tip");
-  if (chips.length && cards.length) {
-    chips.forEach(function (chip) {
-      chip.addEventListener("click", function () {
-        chips.forEach(function (c) {
-          c.classList.remove("active");
-          c.setAttribute("aria-selected", "false");
-        });
-        chip.classList.add("active");
-        chip.setAttribute("aria-selected", "true");
-        var f = chip.getAttribute("data-filter");
-        var visible = 0;
-        cards.forEach(function (card) {
-          var cats = (card.getAttribute("data-cat") || "").split(" ");
-          var show = f === "all" || cats.indexOf(f) !== -1;
-          card.classList.toggle("hidden", !show);
-          if (show) visible++;
-        });
-        if (emptyTip) emptyTip.classList.toggle("show", visible === 0);
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
 
-  /* ---------- 联系表单校验 ---------- */
-  var form = document.getElementById("contactForm");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var ok = true;
-      form.querySelectorAll("[required]").forEach(function (f) {
-        var bad = !f.value.trim();
-        if (!bad && f.type === "email") {
-          bad = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim());
-        }
-        f.classList.toggle("invalid", bad);
-        if (bad) ok = false;
-      });
-      var success = document.getElementById("formSuccess");
-      if (ok && success) {
-        success.classList.add("show");
-        form.reset();
-        setTimeout(function () { success.classList.remove("show"); }, 8000);
-      } else if (!ok) {
-        var firstBad = form.querySelector(".invalid");
-        if (firstBad) firstBad.focus();
-      }
+  /* ---------- 滚动高亮导航 ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var sections = links.map(function (a) {
+    return document.querySelector(a.getAttribute('href'));
+  }).filter(Boolean);
+
+  function spy() {
+    var pos = window.scrollY + 140;
+    var idx = 0;
+    sections.forEach(function (sec, i) {
+      if (sec.offsetTop <= pos) idx = i;
     });
-    form.querySelectorAll("[required]").forEach(function (f) {
-      f.addEventListener("input", function () { f.classList.remove("invalid"); });
+    links.forEach(function (a, i) {
+      a.classList.toggle('active', i === idx);
     });
   }
+  window.addEventListener('scroll', spy, { passive: true });
+  spy();
 
-  /* ---------- 从作品集带过来的项目咨询预填 ---------- */
-  var project = new URLSearchParams(location.search).get("project");
-  if (project) {
-    var msg = document.getElementById("message");
-    if (msg && !msg.value.trim()) {
-      msg.value = "我想咨询「" + project + "」相关项目，请尽快与我联系。";
+  /* ---------- 轮播 ---------- */
+  var slides = document.getElementById('slides');
+  var dotsBox = document.getElementById('carDots');
+  if (slides && dotsBox) {
+    var total = slides.children.length;
+    var cur = 0;
+    var timer = null;
+
+    for (var i = 0; i < total; i++) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', '第' + (i + 1) + '张');
+      (function (n) {
+        b.addEventListener('click', function () { go(n); restart(); });
+      })(i);
+      dotsBox.appendChild(b);
     }
+    var dots = Array.prototype.slice.call(dotsBox.children);
+
+    function go(n) {
+      cur = (n + total) % total;
+      slides.style.transform = 'translateX(-' + cur * 100 + '%)';
+      dots.forEach(function (d, i) { d.classList.toggle('on', i === cur); });
+    }
+    function restart() {
+      if (timer) clearInterval(timer);
+      timer = setInterval(function () { go(cur + 1); }, 5200);
+    }
+    document.getElementById('carPrev').addEventListener('click', function () { go(cur - 1); restart(); });
+    document.getElementById('carNext').addEventListener('click', function () { go(cur + 1); restart(); });
+
+    /* 触摸滑动 */
+    var sx = 0;
+    slides.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    slides.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 48) { go(cur + (dx < 0 ? 1 : -1)); restart(); }
+    }, { passive: true });
+
+    go(0);
+    restart();
   }
 
-  /* ---------- 微信号复制 ---------- */
-  document.querySelectorAll("[data-copy]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var text = btn.getAttribute("data-copy");
-      var tip = btn.querySelector(".copied-tip");
-      function done() {
-        if (tip) {
-          tip.classList.add("show");
-          setTimeout(function () { tip.classList.remove("show"); }, 1800);
-        }
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(done, done);
-      } else {
-        var ta = document.createElement("textarea");
-        ta.value = text;
-        ta.style.position = "fixed";
-        ta.style.opacity = "0";
-        document.body.appendChild(ta);
-        ta.select();
-        try { document.execCommand("copy"); } catch (err) { /* 忽略 */ }
-        document.body.removeChild(ta);
-        done();
-      }
-    });
-  });
+  /* ---------- 打字机 ---------- */
+  var typing = document.getElementById('typing');
+  if (typing) {
+    var lines = [
+      'CHOOSE A DESTINATION · 成都职业技术学院 · 虚拟现实技术应用',
+      '3D SCENE ARTIST · Blender / Substance Painter / UE5',
+      'FROM MODEL TO ENGINE · 建模、材质、灯光到引擎落地',
+      'LEVEL UP · 虚拟现实 · 数字孪生 · 游戏场景'
+    ];
+    var li = 0, ci = 0, del = false;
+    function tick() {
+      var line = lines[li];
+      ci += del ? -1 : 1;
+      typing.textContent = line.slice(0, ci);
+      var wait = del ? 32 : 92;
+      if (!del && ci >= line.length) { del = true; wait = 2200; }
+      else if (del && ci <= 0) { del = false; li = (li + 1) % lines.length; wait = 420; }
+      setTimeout(tick, wait);
+    }
+    setTimeout(tick, 600);
+  }
 
-  /* ---------- 页脚年份 ---------- */
-  var year = document.getElementById("year");
-  if (year) year.textContent = String(new Date().getFullYear());
+  /* ---------- 导出简历（打印为 PDF） ---------- */
+  function exportResume() { window.print(); }
+  var btn = document.getElementById('btnResume');
+  if (btn) btn.addEventListener('click', exportResume);
+  document.querySelectorAll('[data-resume]').forEach(function (el) {
+    el.addEventListener('click', exportResume);
+  });
 })();
