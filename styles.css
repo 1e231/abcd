@@ -365,6 +365,15 @@ a.contact-card:hover { transform: translate(-2px, -2px); box-shadow: 0 10px 0 va
 .site-footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px;
   background: repeating-linear-gradient(90deg, var(--green) 0 12px, var(--pixel-line) 12px 24px, var(--cyan) 24px 36px, var(--pixel-line) 36px 48px); }
 
+/* 板块缺角形状（页面背景色块盖角，像素 UI 开口） */
+.fact::after { content: ""; position: absolute; top: -4px; right: -4px; width: 14px; height: 14px; background: var(--bg); }
+.carousel { clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px, 8px 8px); filter: drop-shadow(0 8px 0 var(--pixel-line)); }
+.work-card::after { content: ""; position: absolute; right: -4px; bottom: -4px; width: 14px; height: 14px; background: var(--bg); }
+.resume-card::after { content: ""; position: absolute; top: -4px; right: -4px; width: 18px; height: 18px; background: var(--bg); }
+.note-card::after { content: ""; position: absolute; top: -3px; left: -3px; width: 16px; height: 16px; background: var(--bg); }
+.contact-card::after { content: ""; position: absolute; left: -4px; bottom: -4px; width: 14px; height: 14px; background: var(--bg); }
+.notes-card { clip-path: polygon(8px 0, calc(100% - 8px) 0, calc(100% - 8px) 8px, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 8px calc(100% - 8px), 0 calc(100% - 8px), 0 8px, 8px 8px); }
+
 /* ---------- 打印（导出简历） ---------- */
 @media print {
   body { background: #fff; color: #111; background-image: none; }
@@ -379,5 +388,7 @@ a.contact-card:hover { transform: translate(-2px, -2px); box-shadow: 0 10px 0 va
   .work-card { page-break-inside: avoid; margin-bottom: 14px; }
   .work-body h3 { color: #000; }
   .fact::before, .carousel::before, .work-card::before, .resume-card::before, .note-card::before { display: none !important; }
+  .fact::after, .work-card::after, .resume-card::after, .note-card::after, .contact-card::after { display: none !important; }
+  .carousel, .notes-card { clip-path: none; filter: none; }
   .note-card { border: 2px solid #999; }
 }
