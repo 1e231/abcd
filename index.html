@@ -149,61 +149,9 @@ h1, h2, h3, h4 { line-height: 1.3; font-weight: 800; }
 .slides { display: flex; transition: transform .45s steps(10); }
 .slide { min-width: 100%; position: relative; }
 
-/* ---- 像素场景（纯 CSS 绘制） ---- */
-.scene { height: 340px; position: relative; overflow: hidden; }
-.scene i { position: absolute; display: block; }
-.slide-img { display: block; width: 100%; height: 340px; object-fit: cover; }
-
-.scene-valley {
-  background: linear-gradient(#0e2a52 0 18%, #16537e 18% 34%, #2a7fb0 34% 52%, #57b7d8 52% 68%, #8fd9b0 68% 76%, #3fae62 76% 100%);
-}
-.mtn { bottom: 24%; width: 56%; height: 46%; }
-.mtn.m1 { left: -6%; background: #2f6f96; clip-path: polygon(0 100%, 0 64%, 7% 64%, 7% 50%, 14% 50%, 14% 36%, 22% 36%, 26% 46%, 32% 46%, 36% 58%, 42% 58%, 46% 72%, 52% 72%, 56% 84%, 100% 84%, 100% 100%); }
-.mtn.m2 { right: -4%; width: 62%; background: #3c86b4; clip-path: polygon(0 100%, 0 78%, 8% 78%, 12% 62%, 18% 62%, 22% 46%, 30% 46%, 36% 30%, 42% 30%, 46% 42%, 52% 42%, 56% 56%, 64% 56%, 68% 70%, 78% 70%, 82% 82%, 100% 82%, 100% 100%); }
-.mtn.m3 { left: 30%; width: 44%; bottom: 20%; height: 40%; background: #57b7d8; clip-path: polygon(0 100%, 0 70%, 10% 70%, 14% 52%, 22% 52%, 28% 34%, 36% 34%, 42% 48%, 50% 48%, 54% 62%, 62% 62%, 66% 76%, 100% 76%, 100% 100%); }
-.tree { width: 6px; height: 6px; bottom: 15%; left: 8%; background: #1c7a3d;
-  box-shadow: 6px 0 0 #1c7a3d, 12px 0 0 #1c7a3d, -6px 6px 0 #1c7a3d, 0 6px 0 #1c7a3d, 6px 6px 0 #1c7a3d, 12px 6px 0 #1c7a3d, 18px 6px 0 #1c7a3d, -6px 12px 0 #1c7a3d, 0 12px 0 #1c7a3d, 6px 12px 0 #1c7a3d, 12px 12px 0 #1c7a3d, 18px 12px 0 #1c7a3d, 0 18px 0 #7a4a21, 6px 18px 0 #7a4a21, 6px 24px 0 #7a4a21; }
-.tree.t2 { left: auto; right: 14%; bottom: 12%; transform: scale(1.4); transform-origin: bottom; }
-.tree.t3 { left: 42%; bottom: 10%; transform: scale(1.1); transform-origin: bottom; }
-.coin { width: 15px; height: 15px; background: var(--gold); border: 2px solid #7a5a00; box-shadow: inset -3px -3px 0 rgba(0,0,0,.25), inset 3px 3px 0 #ffe9a0; animation: coinflip 1.4s steps(4) infinite; }
-.coin.c1 { top: 16%; left: 24%; }
-.coin.c2 { top: 26%; right: 20%; }
-@keyframes coinflip { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(.25); } }
-.star { width: 7px; height: 7px; background: #fff; box-shadow: 7px 0 0 #fff, -7px 0 0 #fff, 0 7px 0 #fff, 0 -7px 0 #fff; animation: twinkle 1.6s steps(2) infinite; }
-.star.s1 { top: 12%; right: 34%; }
-.star.s2 { top: 14%; left: 30%; }
-.star.s3 { top: 10%; right: 26%; animation-delay: .5s; }
+/* ---- 轮播图（真实渲染图，固定高度，移动端转 16:9 比例） ---- */
+.slide-img { display: block; width: 100%; height: 340px; object-fit: cover; background: #0c0c18; }
 @keyframes twinkle { 50% { opacity: .25; } }
-.cloud { width: 26px; height: 10px; background: #eef7ff; box-shadow: 26px -8px 0 4px #eef7ff, 10px -14px 0 6px #eef7ff; opacity: .9; }
-.cloud.k1 { top: 14%; left: 8%; animation: drift 14s linear infinite; }
-.cloud.k2 { top: 24%; right: 6%; animation: drift 18s linear infinite reverse; }
-@keyframes drift { 50% { transform: translateX(40px); } }
-
-.scene-fanlou { background: linear-gradient(#0b1030 0 40%, #141a44 40% 70%, #1c2160 70% 100%); }
-.moon { top: 12%; right: 16%; width: 44px; height: 44px; background: #ffe9a0; box-shadow: 0 0 0 6px rgba(255,233,160,.18), 0 0 30px 8px rgba(255,233,160,.25); clip-path: polygon(0 0, 100% 0, 100% 35%, 55% 35%, 55% 100%, 0 100%); }
-.roof { bottom: 20%; left: 50%; transform: translateX(-50%); width: 66%; height: 34%; background: #a03040; clip-path: polygon(0 100%, 0 55%, 10% 55%, 14% 30%, 24% 30%, 28% 0, 72% 0, 76% 30%, 86% 30%, 90% 55%, 100% 55%, 100% 100%); }
-.roof::after { content: ""; position: absolute; inset: auto 0 -8px 0; height: 8px; background: #701f2c; }
-.tower { bottom: 20%; left: 50%; transform: translateX(-50%); width: 46%; height: 26%; background: #3a2a2e;
-  background-image: repeating-linear-gradient(90deg, transparent 0 14px, #ffcf6b 14px 26px, transparent 26px 40px),
-    repeating-linear-gradient(0deg, transparent 0 18px, #3a2a2e 18px 30px);
-  background-blend-mode: normal; border: 3px solid #241a1e; }
-.lantern { width: 12px; height: 12px; background: var(--red); box-shadow: 0 0 14px 4px rgba(255,90,90,.55); animation: sway 3s ease-in-out infinite; transform-origin: top; }
-.lantern.l1 { top: 44%; left: 26%; }
-.lantern.l2 { top: 44%; right: 26%; animation-delay: .8s; }
-@keyframes sway { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
-
-.scene-twin { background: linear-gradient(#071b2e 0 45%, #0a2a44 45% 100%); }
-.grid-floor { bottom: 0; left: -30%; width: 160%; height: 55%; transform: perspective(320px) rotateX(58deg); transform-origin: bottom;
-  background:
-    repeating-linear-gradient(90deg, rgba(45,226,230,.5) 0 2px, transparent 2px 44px),
-    repeating-linear-gradient(0deg, rgba(45,226,230,.4) 0 2px, transparent 2px 34px);
-  animation: gridmove 1.6s linear infinite; }
-@keyframes gridmove { to { background-position: 0 34px; } }
-.cube { border: 3px solid var(--cyan); box-shadow: inset 0 0 0 2px rgba(45,226,230,.25), 0 0 18px rgba(45,226,230,.35); background: rgba(45,226,230,.08); animation: floaty 3s steps(6) infinite; }
-.cube.q1 { width: 54px; height: 54px; left: 22%; top: 20%; }
-.cube.q2 { width: 34px; height: 34px; left: 55%; top: 34%; animation-delay: .5s; }
-.cube.q3 { width: 44px; height: 44px; right: 12%; top: 14%; animation-delay: 1s; }
-@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
 
 /* 轮播文案 */
 .caption {
@@ -241,7 +189,6 @@ h1, h2, h3, h4 { line-height: 1.3; font-weight: 800; }
 /* ---------- 作品集 ---------- */
 .work-list { display: flex; flex-direction: column; gap: 2.2rem; text-align: left; }
 .work-card { display: grid; grid-template-columns: 1fr 1.05fr; overflow: hidden; }
-.work-card .scene { height: 100%; min-height: 300px; }
 .work-card.rev .work-media { order: 2; }
 .work-media { position: relative; border-right: var(--px) solid var(--pixel-line); }
 .work-card.rev .work-media { border-right: none; border-left: var(--px) solid var(--pixel-line); }
@@ -312,20 +259,24 @@ a.contact-card:hover { transform: translate(-2px, -2px); box-shadow: 0 10px 0 va
   .nav-toggle { display: flex; }
   .quick-facts { grid-template-columns: repeat(2, 1fr); }
   .work-card { grid-template-columns: 1fr; }
-  .work-card .scene { min-height: 240px; height: 240px; }
   .work-card.rev .work-media { order: 0; border-left: none; border-bottom: var(--px) solid var(--pixel-line); }
-  .work-media { border-right: none; border-bottom: var(--px) solid var(--pixel-line); }
+  .work-media { border-right: none; border-bottom: var(--px) solid var(--pixel-line); aspect-ratio: 16 / 9; }
   .contact-grid { grid-template-columns: 1fr; }
   .resume-card { padding: 1.5rem 1.2rem 1.8rem; }
   .resume-info { grid-template-columns: 1fr; }
-  .scene { height: 280px; }
-  .slide-img { height: 280px; }
+  .notes-grid { grid-template-columns: 1fr; gap: 16px; }
+  .slide-img { height: auto; aspect-ratio: 16 / 9; }
 }
 @media (max-width: 560px) {
   .quick-facts { grid-template-columns: 1fr; }
   .caption { flex-direction: column; align-items: flex-start; }
-  .hero-title { letter-spacing: .1em; }
-  .car-btn { top: 22%; }
+  .hero { padding: 2.4rem 0 1.8rem; }
+  .hero-title { letter-spacing: .06em; }
+  .sec-title { letter-spacing: .08em; }
+  .section { padding: 2.6rem 0 .8rem; }
+  .car-btn { top: 24%; }
+  .car-btn.prev { left: 8px; }
+  .car-btn.next { right: 8px; }
   .r-line time { align-self: flex-start; }
 }
 
@@ -394,7 +345,7 @@ a.contact-card:hover { transform: translate(-2px, -2px); box-shadow: 0 10px 0 va
 @media print {
   body { background: #fff; color: #111; background-image: none; }
   .scanlines, .bg-fx, .site-header, .mobile-menu, .car-btn, .dots, .site-footer, .nav-cta { display: none !important; }
-  .scene, .slide-img { display: none; }
+  .slide-img, .work-media { display: none; }
   .pixel-box, .r-item { box-shadow: none; border-color: #999; background: #fff; }
   .resume-card { border: 2px solid #333; }
   .sec-title, .resume-name { text-shadow: none; color: #000; }
