@@ -251,7 +251,7 @@ a.contact-card:hover { transform: translate(-2px, -2px); box-shadow: 0 10px 0 va
 }
 @media (max-width: 560px) {
   .quick-facts { grid-template-columns: 1fr; }
-  .caption { flex-direction: column; align-items: flex-start; }
+  .caption { position: static; flex-direction: column; align-items: flex-start; }
   .hero { padding: 2.4rem 0 1.8rem; }
   .hero-title { letter-spacing: .06em; }
   .sec-title { letter-spacing: .08em; }
@@ -317,11 +317,11 @@ a.contact-card:hover { transform: translate(-2px, -2px); box-shadow: 0 10px 0 va
 
 .notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .note-card { padding: 22px 20px; }
-.note-date { display: inline-block; font-size: .72rem; font-weight: 700; color: var(--accent); background: var(--grad-soft); padding: .22rem .7rem; border-radius: 999px; margin-bottom: .8rem; }
+.note-date { display: inline-block; font-size: .72rem; font-weight: 700; color: var(--gold); background: rgba(255,201,60,.15); padding: .22rem .7rem; border-radius: 999px; margin-bottom: .8rem; }
 .note-card h3 { font-size: 1.05rem; margin-bottom: .55rem; }
 .note-card p { font-size: .9rem; color: var(--muted); }
 .note-tags { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
-.note-tags i { font-style: normal; font-size: .72rem; font-weight: 700; color: var(--accent); border: 1px solid var(--rule); border-radius: 6px; padding: .14rem .5rem; }
+.note-tags i { font-style: normal; font-size: .72rem; font-weight: 700; color: var(--cyan); border: 1px solid rgba(45,226,230,.5); border-radius: 6px; padding: .14rem .5rem; }
 
 /* ---------- 打印（导出简历） ---------- */
 @media print {
