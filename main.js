@@ -102,12 +102,37 @@
     setTimeout(tick, 600);
   }
 
-  /* ---------- 导出简历（打印为 PDF） ---------- */
-  function exportResume() { window.print(); }
-  var btn = document.getElementById('btnResume');
-  if (btn) btn.addEventListener('click', exportResume);
-  document.querySelectorAll('[data-resume]').forEach(function (el) {
-    el.addEventListener('click', exportResume);
+  /* ---------- 联系方式点击复制 ---------- */
+  function copyText(t) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t);
+    return new Promise(function (res, rej) {
+      var ta = document.createElement('textarea');
+      ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      ok ? res() : rej();
+    });
+  }
+  document.querySelectorAll('.contact-card[data-copy]').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var href = card.getAttribute('href');
+      copyText(card.getAttribute('data-copy')).then(function () {
+        var tip = card.querySelector('.copy-toast');
+        if (!tip) {
+          tip = document.createElement('span');
+          tip.className = 'copy-toast';
+          card.appendChild(tip);
+        }
+        tip.textContent = '已复制';
+        tip.classList.add('show');
+        clearTimeout(tip._t);
+        tip._t = setTimeout(function () { tip.classList.remove('show'); }, 1400);
+      }).catch(function () {
+        if (href) window.location.href = href;
+      });
+    });
   });
 
 })();
